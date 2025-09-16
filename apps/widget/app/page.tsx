@@ -7,6 +7,11 @@ import { Button } from "@workspace/ui/components/button";
 export default function Page() {
   const users = useQuery(api.users.getMany);
   const addUser = useMutation(api.users.add);
+
+  if (users === undefined) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className="flex flex-col items-center justify-center min-h-svh">
       <p>apps-widget</p>
